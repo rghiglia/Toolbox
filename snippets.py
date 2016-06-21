@@ -7,6 +7,15 @@ Created on Fri Apr 08 15:08:16 2016
 
 # Snippets
 
+
+# ------------------------------------------------------
+# References
+# ------------------------------------------------------
+
+## Comprehension
+#http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/
+
+
 # ------------------------------------------------------
 # Path
 # ------------------------------------------------------
@@ -44,6 +53,13 @@ with gzip.open(fnzL, 'rb') as in_file:
 # Store uncompressed file data from 's' variable
 with open(fnmL, 'w') as f:
     f.write(s)
+
+
+# ------------------------------------------------------
+# Saving Figure
+# ------------------------------------------------------
+
+if sav: plt.savefig(dnm + '\\' + 'Succ.png', bbox_inches='tight')
 
 
 # ------------------------------------------------------
@@ -762,6 +778,8 @@ f, ax = plt.subplots(figsize=(6, 15))
 
 # Load the example car crash dataset
 crashes = sns.load_dataset("car_crashes").sort_values("total", ascending=False)
+#df_tmp = sns.load_dataset("car_crashes")
+#df_tmp.info()
 
 # Plot the total crashes
 sns.set_color_codes("pastel")
