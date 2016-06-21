@@ -33,6 +33,28 @@ print glob.glob("/home/adam/*.txt")
 #Out[12]: False
 
 
+# ------------------------------------------------------
+# Finding first
+# ------------------------------------------------------
+# http://stackoverflow.com/questions/432112/is-there-a-numpy-function-to-return-the-first-index-of-something-in-an-array
+
+# For list
+l = list(1,2,3)
+l.index(2)
+
+# For numpy.array
+itemindex = numpy.where(array==item)
+
+array[itemindex[0][0]][itemindex[1][0]]
+#would be equal to your item and so would
+array[itemindex[0][1]][itemindex[1][1]]
+
+
+
+# http://stackoverflow.com/questions/9868653/find-first-list-item-that-matches-criteria
+#If you don't have any other indexes or sorted information for your objects, then you will have to iterate until such an object is found:
+next(obj for obj in objs if obj.val==5)
+
 
 # ------------------------------------------------------
 # Extract files (unzip)
