@@ -49,8 +49,6 @@ array[itemindex[0][0]][itemindex[1][0]]
 #would be equal to your item and so would
 array[itemindex[0][1]][itemindex[1][1]]
 
-
-
 # http://stackoverflow.com/questions/9868653/find-first-list-item-that-matches-criteria
 #If you don't have any other indexes or sorted information for your objects, then you will have to iterate until such an object is found:
 next(obj for obj in objs if obj.val==5)
@@ -105,6 +103,18 @@ import time
 start_time = time.time()
 main()
 print("--- %s seconds ---" % (time.time() - start_time))
+
+
+# ------------------------------------------------------
+# Regular Expressions
+# ------------------------------------------------------
+
+#no_parenthesis = re.compile('\[\]')
+#re.split('\W+', 'Words, words, words.')
+#result = prog.match(string)
+#[wrd.strip() for wrd in re.split(',',re.sub('[\[\]\']', '', cats))]
+# removes "'" "[" and "]", then splits by comma then trims each entry in the list
+
 
 
 # ------------------------------------------------------
