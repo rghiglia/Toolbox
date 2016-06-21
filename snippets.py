@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+f# -*- coding: utf-8 -*-
 """
 Created on Fri Apr 08 15:08:16 2016
 
@@ -106,6 +106,7 @@ with open('output.txt', 'w') as f:
 # ------------------------------------------------------
 # format Statement
 # ------------------------------------------------------
+# see https://pyformat.info/
 'F1 = {0:1.2f}'.format(f1_feat, 2.0) # '0' is for the index in the list withing format(), here refers to f1_feat
 'F1 = {1:1.2f}'.format(f1_feat, 2.0) # '0' is for the index in the list withing format(), here refers to 2.0
 'F1 = {0:1.2f}, {1:.2%}'.format(f1_feat, 0.2) # '0' is for the index in the list withing format(), here refers to 2.0
