@@ -14,11 +14,72 @@ Created on Fri Apr 08 15:08:16 2016
 import sys
 sys.path.append(r'C:\Users\rghiglia\Documents\ML_ND\bokeh-master')
 
+# List files
+import glob
+print glob.glob("/home/adam/*.txt")
 
 
 # Careful!
 #In [12]: np.nan == np.nan
 #Out[12]: False
+
+
+
+# ------------------------------------------------------
+# Extract files (unzip)
+# ------------------------------------------------------
+
+import gzip
+
+# Extract files
+dnm = r'C:\Users\rghiglia\Documents\ML_ND\Kaggle\Expedia'
+fnz = 'sample_submission.csv.gz'
+fnzL = dnm + '\\' + fnz
+fnmL = fnzL[:-3]  # remove the '.gz' from the filename
+
+# Read from .gz
+with gzip.open(fnzL, 'rb') as in_file:
+    s = in_file.read()
+
+# Store uncompressed file data from 's' variable
+with open(fnmL, 'w') as f:
+    f.write(s)
+
+
+# ------------------------------------------------------
+# Assign multiple variabels to multiple names
+# ------------------------------------------------------
+
+#for x, y in zip( varlist, data ):
+#    l[x] = y
+#
+#or, more tersely:
+#
+#[ locals()[x] = y for x, y in zip( varlist, data ) ]
+
+
+
+# ------------------------------------------------------
+# Timing
+# ------------------------------------------------------
+
+import time
+start_time = time.time()
+main()
+print("--- %s seconds ---" % (time.time() - start_time))
+
+
+# ------------------------------------------------------
+# Saving data
+# ------------------------------------------------------
+
+fnmO = (dnm + '\\' + 'yelp_data.pkl')
+import dill                            #pip install dill --user
+dill.dump_session(fnmO)
+
+# Load session
+dill.load_session(filename)
+
 
 
 # ------------------------------------------------------
@@ -99,6 +160,10 @@ S = np.c_[s1, s2, s3]
 # ------------------------------------------------------
 # DataFrame
 # ------------------------------------------------------
+
+# Delete column
+df.drop('column_name', axis=1, inplace=True)
+
 
 def _col_seq_set(df, col_list, seq_list):
     ''' set dataframe 'df' col_list's sequence by seq_list '''

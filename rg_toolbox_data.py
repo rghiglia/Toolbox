@@ -216,3 +216,17 @@ def preproc_data_20160504(data):
         data_mlnd = data_mlnd.join(col_data)  # collect column(s) in output dataframe
         
     return(data_num, data_bol, data_bin, data_mlnd)
+
+
+# 6/20/2016
+def df_summarize(df):
+    clmns = df.columns
+    nn = pd.DataFrame(index=range(len(clmns)), columns=['col_nm', 'not_null', 'uniq'])
+    for i, (col, x) in enumerate(df.iteritems()):
+        nn.ix[i, 'col_nm'] = col
+        x_tmp = x[x.notnull()]
+        nn.ix[i, 'not_null'] = len(x_tmp) # is it the same as x.count()?
+        nn.ix[i, 'uniq'] = len(set(x_tmp))
+    nn.sort_values(['not_null', 'uniq', 'col_nm'], ascending=[False, False, True], inplace=True)
+    return nn
+    
