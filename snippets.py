@@ -405,6 +405,7 @@ Plotly
 #fig = go.Figure(data=data, layout=layout)
 #plot_url = py.plot(fig, filename='style-histogram')
 
+f, ax = plt.subplots(figsize=(10,4))
 
 
 #!/usr/bin/env python
@@ -1193,3 +1194,22 @@ sizes = np.rint(np.linspace(1, len(X_train), 50)).astype(int)
 # Histogram
 a = np.arange(5)
 hist, bin_edges = np.histogram(a, density=True)
+
+
+table = pd.DataFrame([[1,     201301],
+           [1,     201301],
+           [2,     201301],
+           [1,     201302],
+           [2,     201302],
+           [2,     201302],
+           [3,     201302]], columns=['CLIENTCODE', 'YEARMONTH'])
+
+table.groupby('YEARMONTH').CLIENTCODE.nunique() # or better version:
+table.groupby('YEARMONTH').CLIENTCODE.apply(lambda x: len(x.unique()))
+
+grp = pd.value_counts(table['YEARMONTH'])
+df_grp = pd.DataFrame({'cat': grp.index, 'cnt': grp.values})
+print df_grp
+
+# Isn't this simpler? Well, it's the same thing just with more labels
+df_num['stars'].value_counts()
