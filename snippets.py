@@ -105,6 +105,13 @@ main()
 print("--- %s seconds ---" % (time.time() - start_time))
 
 
+
+# ------------------------------------------------------
+# Concatenate string with list of strings
+# ------------------------------------------------------
+nm = ['hours' + '.' + d + '.' + oc for d in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] for oc in ['open', 'close']]
+
+
 # ------------------------------------------------------
 # Regular Expressions
 # ------------------------------------------------------
@@ -1201,6 +1208,11 @@ a = np.arange(5)
 hist, bin_edges = np.histogram(a, density=True)
 
 
+
+# ------------------------------------------------------
+# Groupby
+# ------------------------------------------------------
+
 table = pd.DataFrame([[1,     201301],
            [1,     201301],
            [2,     201301],
@@ -1222,7 +1234,10 @@ df_num['stars'].value_counts()
 
 
 
-# Working with NaN's
+
+# ------------------------------------------------------
+# NaN's and dropna()
+# ------------------------------------------------------
 
 #http://pandas.pydata.org/pandas-docs/stable/missing_data.html
 
