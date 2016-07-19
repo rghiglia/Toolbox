@@ -236,6 +236,11 @@ y_GP = y_num[ix_tmp]
 mu = df.Age.mean()  # improvements: use age conditional on sex
 df.loc[np.isnan(df.Age), 'Age'] = mu
 
+# Order columns
+df_num = df_num[df_num.columns.sort_values()]
+
+
+
 # Differentiating by dtype
 for y in agg.columns:
     if(agg[y].dtype == np.float64 or agg[y].dtype == np.int64):
