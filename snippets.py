@@ -1213,3 +1213,20 @@ print df_grp
 
 # Isn't this simpler? Well, it's the same thing just with more labels
 df_num['stars'].value_counts()
+
+
+
+
+# Working with NaN's
+
+#http://pandas.pydata.org/pandas-docs/stable/missing_data.html
+
+df.replace([r'\.', r'(a)'], ['dot', '\1stuff'], regex=True)
+
+# Dropping columns with NaN's
+df_num.dropna(axis=1, inplace=True) # nope: this drops anything that has at least a NaN
+df_num.info()
+
+df_num.dropna(axis=1, how='all', inplace=True) # nope: this drops anything that has at least a NaN
+df_num.info()
+# Awesome
