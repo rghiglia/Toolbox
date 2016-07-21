@@ -217,8 +217,16 @@ S = np.c_[s1, s2, s3]
 # DataFrame
 # ------------------------------------------------------
 
+## A lot of material on DataFrame
+#http://pandas.pydata.org/pandas-docs/stable/reshaping.html
+
+
 # Delete column
 df.drop('column_name', axis=1, inplace=True)
+
+# Renaming coumns with a dictionary
+df_stats.rename(columns=dics['country']['x_Rdic'])
+
 
 
 def _col_seq_set(df, col_list, seq_list):
